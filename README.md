@@ -25,3 +25,26 @@ def removeOuterParentheses(s):
             if count > 0:
                 ans += ch
     return ans
+
+# ROMAN TO INTEGER
+ def romanToInt(self, s: str) -> int:
+        # Your code goes here
+        values={
+            "I":1,
+            "II":2,
+            "III":3,
+            "IV":4,
+            "V":5,
+            "X":10,
+            "L":50,
+            "C":100,
+            "D":500,
+            "M":1000,
+        }
+        ans=0
+        for i in range(len(s)):
+            if i+1<len(s) and values[s[i]] < values[s[i+1]]:
+                ans-=values[s[i]]
+            else:
+                ans+=values[s[i]]
+        return ans
