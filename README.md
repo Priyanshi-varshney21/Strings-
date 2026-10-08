@@ -12,19 +12,21 @@ def palindrome(s):
     right-=1
   return is_palindrome
 
+# REMOVE OYTERMOST PARENTHESE
 def removeOuterParentheses(s):
     ans = ""
-    count = 0
-    for ch in s:
-        if ch == '(':
-            if count > 0:
-                ans += ch
-            count += 1
-        else:
-            count -= 1
-            if count > 0:
-                ans += ch
-    return ans
+        count = 0
+        for ch in s:
+            if ch == '(':
+                if count > 0:
+                    ans += ch
+                count += 1
+            else:
+                count -= 1
+                if count > 0:
+                    ans += ch
+
+        return ans
 
 # ROMAN TO INTEGER
  def romanToInt(self, s: str) -> int:
