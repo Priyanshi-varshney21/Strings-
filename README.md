@@ -48,3 +48,23 @@ def removeOuterParentheses(s):
             else:
                 ans+=values[s[i]]
         return ans
+
+# STRING TO INTEGER
+def myAtoi(self, s):
+        i=0
+        n=len(s)
+        #White space
+        while i<n and s[i]==' ':
+            i+=1
+        #check sign
+        sign=1
+        if i<n and s[i]=='-':
+            sign=-1
+            i+=1
+        elif i<n and s[i]=='+':
+            i+=1
+        ans=0
+        while i<n and s[i].isdigit():
+            ans=ans*10+int(s[i])
+            i+=1
+        return sign*ans
