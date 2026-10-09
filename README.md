@@ -70,3 +70,23 @@ def myAtoi(self, s):
             ans=ans*10+int(s[i])
             i+=1
         return sign*ans
+
+# LONGEST PALINDROMIC SUBSTRING
+def longestPalindrome(self, s: str) -> str:
+        def solve(s,i,j):
+            if i>=j:
+                return True
+            if(s[i]==s[j]):
+                return solve(s,i+1,j-1)
+            return False   
+        n=len(s)
+        sp=0
+        maxLen=0
+        for i in range(n):
+            for j in range(i,n):
+                if (solve(s,i,j)==True):
+                    if(j-i+1)>maxLen:
+                        maxLen=j-i+1
+                        sp=i
+        return s[sp:sp+maxLen]
+            
