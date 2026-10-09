@@ -89,4 +89,21 @@ def longestPalindrome(self, s: str) -> str:
                         maxLen=j-i+1
                         sp=i
         return s[sp:sp+maxLen]
-            
+
+# SUM OF BEAUTY OF ALL SUBSTRINGS 
+def beautySum(self, s: str) -> int:
+        n=len(s)
+        ans=0
+        for i in range(n):
+            freq=[0]*26
+            maxi=0
+            for j in range(i,n):
+                idx=ord(s[j])-ord('a')
+                freq[idx]+=1
+                maxi=max(maxi,freq[idx])
+                mini=float('inf')
+                for k in range(26):
+                    if freq[k]>0:
+                        mini=min(mini,freq[k])
+                ans+=maxi-mini
+        return ans
