@@ -119,4 +119,18 @@ def maxDepth(self, s: str) -> int:
             elif ch==')':
                 count-=1
         return maxi
-        
+
+# WONDERFUL WORDS
+def countSubstrings(self, s: str) -> int:
+        mask=0
+        ans=0
+        freq={0:1}
+        for ch in s:
+            bit=ord(ch)-ord('a')
+            mask^=(1<<bit)
+            ans+=freq.get(mask,0)
+            for i in range(10):
+                new_mask=mask ^ (1<<i)
+                ans+=freq.get(new_mask,0)
+            freq[mask]=freq.get(mask,0)+1
+        return ans
